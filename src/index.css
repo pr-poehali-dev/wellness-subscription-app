@@ -100,4 +100,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .card {
+    @apply text-white;
+  }
 }

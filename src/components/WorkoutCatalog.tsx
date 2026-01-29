@@ -78,8 +78,11 @@ export default function WorkoutCatalog({ onNavigate }: WorkoutCatalogProps) {
   const filteredWorkouts = workouts.filter((w) => filter === 'all' || w.category === filter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
-      <header className="bg-card/50 backdrop-blur-sm border-b sticky top-0 z-10">
+    <div className="min-h-screen bg-[#1A1F2C] relative">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(249,115,22,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(249,115,22,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <header className="bg-[#1A1F2C]/80 backdrop-blur-xl border-b border-primary/10 sticky top-0 z-50 relative">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => onNavigate('home')}>
             <Icon name="ArrowLeft" size={20} />
@@ -90,7 +93,7 @@ export default function WorkoutCatalog({ onNavigate }: WorkoutCatalogProps) {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-8 relative z-10">
         <div className="mb-6">
           <Tabs defaultValue="all" onValueChange={setFilter} className="w-full">
             <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-grid">
@@ -106,7 +109,7 @@ export default function WorkoutCatalog({ onNavigate }: WorkoutCatalogProps) {
           {filteredWorkouts.map((workout, idx) => (
             <Card
               key={workout.id}
-              className="p-6 cursor-pointer hover:shadow-lg transition-all hover:scale-[1.02] animate-fade-in relative overflow-hidden group"
+              className="p-6 cursor-pointer hover:shadow-2xl transition-all hover:scale-[1.02] animate-fade-in relative overflow-hidden group bg-card/40 backdrop-blur-xl border-primary/20"
               style={{ animationDelay: `${idx * 50}ms` }}
             >
               {workout.isPremium && (
@@ -177,7 +180,7 @@ export default function WorkoutCatalog({ onNavigate }: WorkoutCatalogProps) {
           ))}
         </div>
 
-        <Card className="mt-8 p-8 text-center bg-gradient-to-br from-secondary/10 to-primary/10 border-secondary/20">
+        <Card className="mt-8 p-8 text-center bg-gradient-to-br from-secondary/20 to-primary/20 border-secondary/30 backdrop-blur-xl shadow-2xl">
           <div className="max-w-2xl mx-auto">
             <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
               <Icon name="Crown" size={32} className="text-white" />

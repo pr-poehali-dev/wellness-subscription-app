@@ -56,8 +56,11 @@ export default function Home({ userData, onNavigate }: HomeProps) {
   ][Math.floor(Math.random() * 4)];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
-      <header className="bg-card/50 backdrop-blur-sm border-b sticky top-0 z-10">
+    <div className="min-h-screen bg-[#1A1F2C] relative">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(249,115,22,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(249,115,22,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      <header className="bg-[#1A1F2C]/80 backdrop-blur-xl border-b border-primary/10 sticky top-0 z-50 relative">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             FitLazy
@@ -73,17 +76,17 @@ export default function Home({ userData, onNavigate }: HomeProps) {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-8 relative z-10">
         <div className="mb-6 animate-fade-in">
-          <h2 className="text-3xl font-display font-bold mb-2">
+          <h2 className="text-3xl font-display font-bold mb-2 text-white">
             Привет! 👋
           </h2>
-          <p className="text-muted-foreground">{motivationalQuote}</p>
+          <p className="text-gray-300">{motivationalQuote}</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
-            <Card className="p-6 animate-scale-in">
+            <Card className="p-6 animate-scale-in bg-card/40 backdrop-blur-xl border-primary/20 shadow-xl">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-2xl font-display font-bold mb-1">{todayWorkout.name}</h3>
@@ -189,7 +192,7 @@ export default function Home({ userData, onNavigate }: HomeProps) {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 bg-card/40 backdrop-blur-xl border-primary/20 shadow-xl">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-display font-bold">Другие тренировки</h3>
                 <Button variant="link" onClick={() => onNavigate('catalog')} className="text-primary">
@@ -218,7 +221,7 @@ export default function Home({ userData, onNavigate }: HomeProps) {
           </div>
 
           <div className="space-y-6">
-            <Card className="p-6 animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <Card className="p-6 animate-fade-in bg-card/40 backdrop-blur-xl border-primary/20 shadow-xl" style={{ animationDelay: '100ms' }}>
               <h3 className="text-xl font-display font-bold mb-4">Прогресс недели</h3>
               <div className="space-y-4">
                 <div>
@@ -248,7 +251,7 @@ export default function Home({ userData, onNavigate }: HomeProps) {
               </div>
             </Card>
 
-            <Card className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/20">
+            <Card className="p-6 bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30 backdrop-blur-xl shadow-xl">
               <div className="flex items-start gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                   <Icon name="Sparkles" size={20} className="text-white" />
@@ -266,7 +269,7 @@ export default function Home({ userData, onNavigate }: HomeProps) {
               </Button>
             </Card>
 
-            <Card className="p-6 bg-gradient-to-br from-secondary/10 to-primary/10 border-secondary/20">
+            <Card className="p-6 bg-gradient-to-br from-secondary/20 to-primary/20 border-secondary/30 backdrop-blur-xl shadow-xl">
               <div className="flex items-start gap-3 mb-3">
                 <Icon name="Crown" size={24} className="text-secondary" />
                 <div>
